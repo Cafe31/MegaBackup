@@ -1,0 +1,42 @@
+{
+	"tmp_dir" : "/tmp/backup/",
+	"date_format": "timestamp",
+	"compression_algorithm": "gzip",
+	"from" : [
+		{
+			"name" : "cafecloud_database",
+			"type" : "mysql",
+			"credentials" : {
+				"server" : "my_dababase_server_address",
+				"port" : 3306,
+				"username" : "my_db_username",
+				"auth_method" : "password",
+				"password" : "my_db_password"
+			},
+			"sources" : [ "my_db_name" ]
+		},
+
+		{
+			"name" : "node1_root",
+			"type" : "files",
+			"credentials" : {
+				"server" : "my_server_address",
+				"port" : 22,
+				"username" : "root",
+				"auth_method" : "password",
+				"password" : "my_password"
+			},
+			"sources" : [ "/root" ]
+		}
+	],
+
+	"to" : {
+		"type" : "s3",
+		"credentials" : {
+			"access_key" : "my_aws_access_key",
+			"secret_key" : "my_aws_secret_key",
+			"bucket" : "my_s3_bucketname"
+		},
+		"path" : "/"
+	}
+}

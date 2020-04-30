@@ -1,0 +1,36 @@
+	"to" : {
+		"type" : "swift",
+		"credentials" : {
+			"tenant_name" : "tenant_name",
+			"username" : "my_username",
+			"password" : "tenant_key",
+			"auth_url" : "my_auth_url",
+			"auth_version" : 2,
+			"region_name": "WAW",
+			"container": "container_name"
+		},
+		"path" : "/"
+	}
+
+
+	"to" : {
+		"type" : "files",
+		"credentials" : {
+			"server" : "my_server_name",
+			"port" : 22,
+			"username" : "root",
+			"auth_method" : "password",
+			"password" : "my_server_password"
+		},
+		"path" : "/tmp/backup/"
+	},
+
+	"to" : {
+		"type" : "s3",
+		"credentials" : {
+			"access_key" : "my_aws_access_key",
+			"secret_key" : "my_aws_secret_key",
+			"bucket" : "my_s3_bucket"
+		},
+		"path" : "/"
+	}
