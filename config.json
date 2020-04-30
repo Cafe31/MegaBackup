@@ -4,7 +4,7 @@
 	"compression_algorithm": "gzip",
 	"from" : [
 		{
-			"name" : "cafecloud_database",
+			"name" : "my_first_backup",
 			"type" : "mysql",
 			"credentials" : {
 				"server" : "my_dababase_server_address",
@@ -17,7 +17,7 @@
 		},
 
 		{
-			"name" : "node1_root",
+			"name" : "my_second_backup",
 			"type" : "files",
 			"credentials" : {
 				"server" : "my_server_address",
