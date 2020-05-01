@@ -1,3 +1,25 @@
+	"type" : "mysql",
+	"credentials" : {
+		"server" : "my_dababase_server_address",
+		"port" : 3306,
+		"username" : "my_db_username",
+		"auth_method" : "password",
+		"password" : "my_db_password"
+	},
+	"sources" : [ "my_db_name" ]
+	
+	"to" : {
+	"type" : "files",
+	"credentials" : {
+		"server" : "my_server_name",
+		"port" : 22,
+		"username" : "root",
+		"auth_method" : "password",
+		"password" : "my_server_password"
+	},
+	"path" : "/tmp/backup/"
+	},
+	
 	"to" : {
 		"type" : "swift",
 		"credentials" : {
@@ -11,19 +33,6 @@
 		},
 		"path" : "/"
 	}
-
-
-	"to" : {
-		"type" : "files",
-		"credentials" : {
-			"server" : "my_server_name",
-			"port" : 22,
-			"username" : "root",
-			"auth_method" : "password",
-			"password" : "my_server_password"
-		},
-		"path" : "/tmp/backup/"
-	},
 
 	"to" : {
 		"type" : "s3",
