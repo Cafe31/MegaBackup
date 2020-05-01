@@ -25,17 +25,14 @@ You only have to edit config.json file with your login credentials:
 | Variable     | Description                                                  |
 | ------------ | ------------------------------------------------------------ |
 | tmp_dir    | Path of temporary directory (must end with a slash)   |
-| date_format   | timestamp (1588258810) or date (2020-04-30) used to rename your backup file backup-date_format.tar.gz. You should use timestamp if you make a backup more frequently than daily |
-| compression_algorith | Only gzip is supported for the moment   |
-| type  | databse/files for sources, and s3/swift/files for target |
+| date_format   | "timestamp" (1588258810) or "date" (2020-04-30) used to rename your backup file backup-date_format.tar.gz. You should use timestamp if you make a backup more frequently than daily |
+| compression_algorith | Only "gzip" is supported for the moment   |
+| type  | database/files for sources, and s3/swift/files for target |
 | sources | You can set several sources, separated by commas |
 | path | Path for the target (must end with a slash) |
+| auth_method | Can be set on "ssh_key" or "password" |
 
-For each connection type, here is the information required in credentials:
-
-
-
-
+For each connection type, credential informations needed are detailed in examples.txt
 
 You can add a crontab to make a new backup everyday:
 <pre>0 3 * * * python3 /path/main.py</pre>
