@@ -11,6 +11,7 @@ import methods.swift as swift
 
 from functions import *
 
+#Verification that the prerequisites are present
 packets_required=["sshpass", "rsync", "mariadb-client"]
 supported_compression_algorithm=["gzip"]
 
@@ -31,6 +32,7 @@ empty_tmp_dir(tmp_dir)
 if data['compression_algorithm'] not in supported_compression_algorithm:
 	exit("The following compression algorithm is not supported : " + data['compression_algorithm'])
 
+#Downloading data from all sources
 for backup in data['from']:
 	credentials = backup['credentials']
 	backup_names.append(backup['name'])
