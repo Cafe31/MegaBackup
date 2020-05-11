@@ -2,20 +2,24 @@
 
 import os, subprocess, time, datetime, importlib.util
 
+#make a directory if necessary
 def create_directory(path):
 	os.system("mkdir -p " + path)
 
+#check if the packet in parameter is installed on the system
 def is_packet_installed(packet_name):
 	try:
 		subprocess.check_output(["dpkg", "-l", packet_name])
 	except subprocess.CalledProcessError as e:
 		exit(packet_name + " package is needed to continue")
 
+#check if a python module is installed
 def is_module_installed(module_name):
 	spec = importlib.util.find_spec(module_name)
 	if spec is None:
 	    exit(module_name + " module is needed to continue, you should try: pip install " + module_name)
 
+#make a .tar.gz archive and delete the old folder
 def compress_directory(path, algorithm, backup_name):
 	print(backup_name + ": Compressing backup ")
 
@@ -27,6 +31,7 @@ def compress_directory(path, algorithm, backup_name):
 def empty_tmp_dir(tmp_dir):
 	os.system("rm -r " + tmp_dir + "*")
 
+#compress all compressed backups in one
 def final_compression(path, algorithm, date_format, backup_names):
 	if date_format == "timestamp":
 		final_name = "backup_" + str(int(time.time())) + ".tar.gz"
@@ -39,5 +44,3 @@ def final_compression(path, algorithm, date_format, backup_names):
 		os.system("rm " + path + backup_name + ".tar.gz")
 
 	return path, final_name
-
-is_module_installed("swiftclient")
