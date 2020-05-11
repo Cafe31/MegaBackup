@@ -2,6 +2,7 @@
 
 import os, subprocess
 
+#check if a databse is available with entered credentials
 def verify_connection(credentials, database):
 	if credentials['auth_method'] == "ssh_key":
 		return False
@@ -13,6 +14,7 @@ def verify_connection(credentials, database):
 		return False
 	return True
 
+#save a database into a file
 def make_backup(backup_name, credentials, database, tmp_dir):
 	os.system("mysqldump -h " + credentials['server'] + " -P " + str(credentials['port']) + " -u " + credentials['username'] + " -p" + credentials['password'] + " " + database + " > " + tmp_dir + backup_name + "/" + database + ".sql")
 	print(backup_name + ": Database " + database + " successfully saved")
