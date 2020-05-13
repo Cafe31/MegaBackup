@@ -15,8 +15,10 @@ git clone https://github.com/Cafe31/MegaBackup.git
 
 If you want to upload your backup on S3 or Openstack Swift, you need to install the following modules:
 
-S3:<pre>pip install boto3</pre>
-Swift:<pre>pip install python-swiftclient python-keystoneclient</pre>
+S3:<pre>pip3 install boto3</pre>
+Swift:<pre>pip3 install python-swiftclient python-keystoneclient</pre>
+
+Note: uninstall python2.7 if you encounter problems when installing the two modules above (apt-get remove --purge python2.7 && apt-get install python-pip)
 
 <h1>Configuration</h1>
 
