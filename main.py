@@ -32,7 +32,7 @@ empty_tmp_dir(tmp_dir)
 if data['compression_algorithm'] not in supported_compression_algorithm:
 	exit("The following compression algorithm is not supported : " + data['compression_algorithm'])
 
-#Downloading data from all sources
+#Download data from all sources
 for backup in data['from']:
 	credentials = backup['credentials']
 	backup_names.append(backup['name'])
@@ -62,7 +62,7 @@ for backup in data['from']:
 
 backup_path, backup_name=final_compression(tmp_dir, data['compression_algorithm'], data['date_format'], backup_names)
 
-#Sending the backup file to the choosed source (s3, swift, SSH)
+#Send the backup file to the choosed source (s3, swift, SSH)
 target_credentials = data['to']['credentials']
 target_path = data['to']['path']
 
