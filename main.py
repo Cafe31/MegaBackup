@@ -11,7 +11,7 @@ import methods.swift as swift
 
 from functions import *
 
-#Verification that the prerequisites are present
+#Check if the prerequisites are present
 packets_required=["sshpass", "rsync", "mariadb-client"]
 supported_compression_algorithm=["gzip"]
 
@@ -62,7 +62,7 @@ for backup in data['from']:
 
 backup_path, backup_name=final_compression(tmp_dir, data['compression_algorithm'], data['date_format'], backup_names)
 
-#Maintenant le fichier compressé créé, on l'envoie vers le cible choisie
+#Sending the backup file to the choosed source (s3, swift, SSH)
 target_credentials = data['to']['credentials']
 target_path = data['to']['path']
 
