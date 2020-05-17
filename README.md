@@ -37,7 +37,7 @@ For each connection type, credential informations needed are detailed in example
 <h1>Restore a backup</h1>
 
 You can restore data from a backup file as below:
-<pre>python3 main.py restore <backup_file_name_with_tar.gz_extension> <backup_name_to_restore> <other_backup_name_to_restore></pre>
+<pre>python3 main.py restore \<backup_file_name_with_tar.gz_extension\> \<backup_name_to_restore\> \<other_backup_name_to_restore\></pre>
 
 Note: MegaBackup will download the specified backup file from the target speficied in config.json
 
