@@ -39,7 +39,7 @@ For each connection type, credential informations needed are detailed in example
 You can restore data from a backup file as below:
 <pre>python3 main.py restore backup_file_name.tar.gz backup_name_to_restore other_backup_name_to_restore</pre>
 
-Note: MegaBackup will download the specified backup file from the target speficied in config.json
+Note: MegaBackup will download the specified backup file from the target specified in config.json
 
 In the case you want to restore a backup on a new server, you need to change server_address credentials for specified backup
 
