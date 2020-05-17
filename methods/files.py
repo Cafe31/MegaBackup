@@ -40,3 +40,22 @@ def upload_file(credentials, target_path, backup_path):
 	os.system("rm " + backup_path)
 
 	print('Final backup file sucessfully uploaded')
+
+#download a file/directory from SSH source
+def download_file(credentials, target_path, backup_path):
+	print("Downloading backup file...")
+
+	os.system("rm " + backup_path)
+	os.system(get_command_prefix(credentials, "string") + " rsync -az -e 'ssh -p " + str(credentials['port']) + "' --ignore-existing " + credentials['username'] + "@" + credentials['server'] + ":" + target_path + " " + backup_path)
+
+	print('Last backup file downloaded')
+
+#upload a file/directory to an SSH source
+def restore_backup(backup_name, credentials, path, tmp_dir):
+	print(backup_name + ": Restoring " + path + " from backup...")
+
+	path_splited = path.split("/")
+	os.system(get_command_prefix(credentials, "string") + " rsync -az -e 'ssh -p " + str(credentials['port']) + "' " + tmp_dir + backup_name + "/" + path_splited[len(path_splited)-1] + "/ " + credentials['username'] + "@" + credentials['server'] + ":" + path)
+
+	print(backup_name + ": Files successfully restored from backup")
+
