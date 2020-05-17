@@ -5,7 +5,7 @@ You only have to specify login credentials for sources and target in config.json
 
 <h1>Installation</h1>
 
-You need python3 to use this tool. I tested it on Debian/Ubuntu but it should also work on CentOS.
+You need python3 to use this tool. I tested it on Debian/Ubuntu.
 
 Then, you only have to follow these steps:
 <pre>
@@ -15,10 +15,8 @@ git clone https://github.com/Cafe31/MegaBackup.git
 
 If you want to upload your backup on S3 or Openstack Swift, you need to install the following modules:
 
-S3:<pre>pip3 install boto3</pre>
-Swift:<pre>pip3 install python-swiftclient python-keystoneclient</pre>
-
-Note: uninstall python2.7 if you encounter problems when installing the two modules above (apt-get remove --purge python2.7 && apt-get install python-pip)
+S3:<pre>pip install boto3</pre>
+Swift:<pre>pip install python-swiftclient python-keystoneclient</pre>
 
 <h1>Configuration</h1>
 
@@ -36,5 +34,16 @@ You only have to edit config.json file with your login credentials:
 
 For each connection type, credential informations needed are detailed in examples.txt
 
+<h1>Restore a backup</h1>
+
+You can restore data from a backup file as below:
+<pre>python3 main.py restore <backup_file_name_with_tar.gz_extension> <backup_name_to_restore> <other_backup_name_to_restore></pre>
+
+Note: MegaBackup will download the specified backup file from the target speficied in config.json
+
+In the case you want to restore a backup on a new server, you need to change server_address credentials for specified backup
+
+<h1>Make a daily backup</h1>
+
 You can add a crontab to make a new backup everyday:
-<pre>0 3 * * * python3 /path/main.py</pre>
+<pre>0 3 * * * python3 /path/main.py backup</pre>

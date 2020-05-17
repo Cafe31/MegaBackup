@@ -28,8 +28,18 @@ def compress_directory(path, algorithm, backup_name):
 
 	return backup_name
 
+#delete all files in tmp_dir
 def empty_tmp_dir(tmp_dir):
 	os.system("rm -r " + tmp_dir + "*")
+
+#find right credentials for backup_name in json string and return them
+def get_backup_infos(json_data, backup_name):
+	for backup in json_data:
+		if backup['name'] == backup_name:
+			return backup['type'], backup['credentials'], backup['sources']
+
+	exit("None connection informations found for " + backup_name)
+
 
 #compress all compressed backups in one
 def final_compression(path, algorithm, date_format, backup_names):
@@ -44,3 +54,11 @@ def final_compression(path, algorithm, date_format, backup_names):
 		os.system("rm " + path + backup_name + ".tar.gz")
 
 	return path, final_name
+
+#decompress a .tar.gz file
+def decompress_file(path, filename):
+	print(filename + ": Deflating compressed backup...")
+
+	os.system("tar -P -xzf " + path + filename + " > /dev/null")
+
+	print(filename + ": Compressed backup deflated")
