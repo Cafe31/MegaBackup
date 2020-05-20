@@ -47,3 +47,7 @@ In the case you want to restore a backup on a new server, you need to change ser
 
 You can add a crontab to make a new backup everyday:
 <pre>0 3 * * * python3 /path/main.py backup</pre>
+
+<h1>License</h1>
+
+This project is licensed under <a href="https://choosealicense.com/licenses/cc0-1.0/">Creative Commons Zero v1.0 Universal</a>.
